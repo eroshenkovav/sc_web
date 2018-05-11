@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="images/favicon.ico">
+
+    <title>{{ title }} - My Django Application</title>
+    {% load staticfiles %}
+
+    
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/bootstrap.min.css' %}" />
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/site.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/dashboard.css' %}" >
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/font-awesome.min.css' %}" >
+
+    <script src="{% static 'app/scripts/jquery-3.2.1.slim.min.js' %}"></script>
+    <script src="{% static 'app/scripts/popper.min.js' %}"></script>
+    <script src="{% static 'app/scripts/bootstrap.min.js' %}"></script>
+</head>
+
+<body>
+
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="{% url 'home' %}">StatCoiner Site</a>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault" style="margin-left: 30px">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active" style="margin-right: 10px">
+              <a class="nav-link" href="{% url 'home' %}"><i class="fa fa-home" aria-hidden="true"></i> Домой <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active" style="margin-right: 10px">
+              <a class="nav-link" href="{% url 'home' %}"><i class="fa fa-comment-o" aria-hidden="true"></i> Сообщения<sup><i class="fa fa-asterisk" aria-hidden="true" style="color: red; font-size: .8em;"></i></sup> </a>
+            </li>			
+	    <li class="nav-item">
+		    
+
+	    </li>
+          </ul>
+	  
+	  
+	  <form action="https://yandex.ru/search/" method="get"  class="form-inline " style="margin-right: 160px">
+            <input class="form-control mr-sm-2" type="text" name="text" placeholder="Поиск" aria-label="Поиск">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Найти</button>
+          </form>
+          <ul class="navbar-nav mt-2 mt-md-0">
+	    <li class="nav-item dropdown">
+        <!--<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-user-circle" aria-hidden="true"></i> Андрей Кузнецов
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Профиль</a>
+          <a class="dropdown-item" href="#">Настройки</a>
+	<div class="dropdown-divider"></div>		  
+          <a class="dropdown-item" href="#">Выход</a>
+        </div>-->
+      </li>
+	    
+          </ul>
+	  {% include 'app/loginpartial.html' %}
+	          
+
+	  
+        </div>
+      </nav>
+    </header>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
+          <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="."><i class="fa fa-binoculars" aria-hidden="true"></i>&nbsp;&nbsp;Обзор</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><i class="fa fa-area-chart" aria-hidden="true"></i>&nbsp;&nbsp;Отчёты</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><i class="fa fa-upload" aria-hidden="true"></i>&nbsp;&nbsp;Экспорт</a>
+            </li>
+          </ul>
+
+          <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="#"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;&nbsp;Участники</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><i class="fa fa-book" aria-hidden="true"></i>&nbsp;&nbsp;Словари</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/admin"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp;&nbsp;Администрирование</a>
+            </li>
+          </ul>
+	  
+	<ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="eventlog"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;&nbsp;Лента событий</a>
+            </li>
+          </ul>		  
+	  
+        </nav>
+
+        <main role="main" class="col-sm-9 ml-sm-auto col-md-10">
+
+            {% block content %}{% endblock %}
+
+        </main>
+      </div>
+    </div>
+</body>
+</html>

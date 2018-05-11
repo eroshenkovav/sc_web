@@ -1,0 +1,46 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<h1 class="display-3">Свечки за пять минут</h1>
+
+	  
+	  <br>
+	  
+	{% if project_list %}
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Пара валют</th>
+                  <th>Цена открытия</th>
+                  <th>Цена закрытия</th>
+                  <th>Объем</th>
+                </tr>
+              </thead>
+              <tbody>
+	        {% for project in project_list %}
+                <tr>
+                  <th>
+		    {% if project.priority %}
+		    <i class="fa fa-bolt" aria-hidden="true" title="Высокий приоритет"></i>
+		    {% endif %}
+		  </th>
+                  <td>{{ project.project_status }}</td>
+                  <td>{{ project.curator }}</td>
+                  <td>{{ project.duration }}</td>
+                </tr>
+	        {% endfor %}
+
+                <tr>
+                
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+		{% else %}
+		    <p>No polls are available.</p>
+		{% endif %}
+
+{% endblock %}
